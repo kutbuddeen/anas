@@ -1,0 +1,130 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Form</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<style type="text/css">
+#form {
+	padding-top: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 50px;
+}
+</style>
+
+</head>
+<body>
+	<div class="container my-5">
+		<h3>Student Form</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-8">
+					<form th:action="@{/save.htm}" th:object="${student}"
+						class="needs-validation" method="POST" novalidate>
+						<div class="form-group">
+							<label for="studentName">Student Name:</label> <input
+								th:field="*{studentName}" type="text" class="form-control"
+								id="userName" placeholder="Enter Student Name here"
+								name="userName" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please Enter the Name.</div>
+						</div>
+						<div class="form-group">
+							<label for="addressLine1">Address Line1:</label> <input
+								th:field="*{addressLine1}" type="text" class="form-control"
+								id="addressLine1" placeholder="Enter Address Line 1 here"
+								name="addressLine1" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please Enter Address Line 1.</div>
+						</div>
+						<div class="form-group">
+							<label for="addressLine2">Address Line2:</label> <input
+								th:field="*{addressLine2}" type="text" class="form-control"
+								id="addressLine2" placeholder="Enter Address Line2 here"
+								name="addressLine2" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please Enter Address Line 2.</div>
+						</div>
+
+						<div class="form-group">
+							<label for="city">City:</label> <input th:field="*{city}"
+								type="text" class="form-control" id="city"
+								placeholder="Enter city name here" name="city" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please Enter City Name.</div>
+						</div>
+
+						<div class="form-group">
+							<label for="state">State:</label> <input th:field="*{state}"
+								type="text" class="form-control" id="state"
+								placeholder="Enter state name here" name="state" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please Enter State Name.</div>
+						</div>
+
+						<div class="form-group">
+							<label for="country">Country:</label> <input
+								th:field="*{country}" type="text" class="form-control"
+								id="country" placeholder="Enter country name here"
+								name="country" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please Enter Country Name.</div>
+						</div>
+
+						<div class="form-group">
+							<label for="zip">Zip:</label> <input th:field="*{zip}"
+								type="text" class="form-control" id="zip"
+								placeholder="Enter zip code here" name="zip" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please Enter Zip Code.</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		// Disable form submissions if there are invalid fields
+		(function() {
+			'use strict';
+			window.addEventListener('load',
+					function() {
+						// Get the forms we want to add validation styles to
+						var forms = document
+								.getElementsByClassName('needs-validation');
+						// Loop over them and prevent submission
+						var validation = Array.prototype.filter.call(forms,
+								function(form) {
+									form.addEventListener('submit', function(
+											event) {
+										if (form.checkValidity() === false) {
+											event.preventDefault();
+											event.stopPropagation();
+										}
+										form.classList.add('was-validated');
+									}, false);
+								});
+					}, false);
+		})();
+	</script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+</body>
+</html>
